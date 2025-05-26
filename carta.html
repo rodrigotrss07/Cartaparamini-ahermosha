@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Para mi princesa</title>
+<style>
+  body {
+    background: #ffe9f0;
+    color: #5a2a4a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  h1 {
+    margin-top: 40px;
+    font-size: 2.6em;
+    text-align: center;
+    font-weight: 700;
+  }
+  p {
+    max-width: 700px;
+    font-size: 1.25em;
+    line-height: 1.6;
+    margin: 30px 0 40px;
+    white-space: pre-line;
+    text-align: center;
+  }
+  .heart {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 3em;
+    color: #ff5470;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  audio {
+    display: none;
+  }
+  button {
+    background: #ff5470;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 40px;
+  }
+  button:hover {
+    background: #e44463;
+  }
+</style>
+</head>
+<body>
+
+<div class="heart">❤️</div>
+
+<h1>Esto es un detallito más de tu niño para su niña que AMA TANTO</h1>
+
+<p>
+Esto es un detallito más de tu niño pala su niña que AMA TANTO , mi niña siempre me esfolzale pol ti y siempre serás mi prioridad ante todo , mi colazoncito siempre sela tuyo , SIEMPRE SELEMOS TU Y YO HASTA EL FIN DEL MUNDITO AGARRADITOS DE LA MANITO , AYUDANDONOS EN TODITO Y SIEMPLE ESTANDO JUNTITOS LLENANDONOS DE AMOR, PAZ Y VIDA , MI PRINCESITA TECUIDALE TODA LA VIDA, CUIDALE TU HELMOSO COLAZONCITO Y TAMBIÉN QUEYO HACELTE SABEL Q NADA PODLA SEPALARNOS , NI UN SOLO PROBLEMITA , DISCUSIÓN O CUALQUIER COSITA, NADA PODLA HACERLO, TU NIÑO SE ESFUELZA MUCHO POL TI Y QUEYE LLENARTE DE AMOR HASTA QUE EXPLOTES JAJAKSKSKS ,TE AMO MI PRINCESITA ADORO ETAR A TU LADO Y Q ME HAYAS ELEGIDO COMO TU ESPOSITO , VAMOS A TENEL UN FUTURO MUYMUY HELMOSHO CON LA FAMILIA Q VAMOS A FORMAR , TODO SELA MUY HELMOSO , YAQUEYO QUE LLEGUE EL DIA EN QUE NOS CASEMOS Y SEAMOS AUN MAS FELICES DE LO Q SOMOS, MI NIÑA YO ESTARÉ ATULADO EN LAS BUENAS Y EN LAS MALAS POQUE TE AMO , TE ADMIRO Y ERES MI TODO , ANTE MIS OJOS ERES PERFECCION, TAN HELMOSA DIOSSS, AMO TODO DE TI MI PRINCESA Y SIEMPRE TE AMALE HASTA EL DIA QUEME MUEYA , GLACIAS POL SEL LA MEJOL ESPOSITA DE UNIVELSO , TE ADOLO MIPRINCESITA HERMOSA CON TODO MI SER ❤️
+</p>
+
+<button id="toggleMusic">Pausar música</button>
+
+<audio id="audio1" src="https://cdn.pixabay.com/download/audio/2022/03/22/audio_52d019c4cc.mp3?filename=carla-morrison-constelaciones-7110.mp3" autoplay loop></audio>
+<audio id="audio2" src="https://cdn.pixabay.com/download/audio/2022/03/22/audio_4678bb2ed2.mp3?filename=brillas-de-leon-arregui-7610.mp3" loop></audio>
+
+<script>
+  const audio1 = document.getElementById('audio1');
+  const audio2 = document.getElementById('audio2');
+  const button = document.getElementById('toggleMusic');
+  let isPlaying = true;
+
+  function switchMusic() {
+    if (audio1.paused) {
+      audio1.play();
+      audio2.pause();
+    } else {
+      audio1.pause();
+      audio2.play();
+    }
+  }
+
+  setInterval(switchMusic, 60000); // Cambia canción cada 60 segundos
+
+  button.addEventListener('click', () => {
+    if (isPlaying) {
+      audio1.pause();
+      audio2.pause();
+      button.textContent = 'Reproducir música';
+    } else {
+      if (audio1.paused && audio2.paused) {
+        audio1.play();
+      }
+      button.textContent = 'Pausar música';
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+</body>
+</html>
